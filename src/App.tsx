@@ -5,6 +5,7 @@ import { ConfirmProvider } from './components/ui/ConfirmDialog';
 import { ToastProvider } from './components/ui/Toast';
 import { LockGate } from './components/LockGate';
 import { useAndroidBackButton } from './lib/useAndroidBackButton';
+import { useDeepLinks } from './hooks/useDeepLinks';
 import { HomeScreen } from './screens/HomeScreen';
 import { HistoryScreen } from './screens/HistoryScreen';
 import { StatsScreen } from './screens/StatsScreen';
@@ -14,6 +15,7 @@ import { PresetsScreen } from './screens/PresetsScreen';
 
 export default function App() {
   useAndroidBackButton();
+  useDeepLinks();
 
   return (
     <ConfirmProvider>
