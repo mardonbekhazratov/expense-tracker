@@ -91,7 +91,7 @@ android/                   Capacitor project + MainActivity, DownloadsPlugin, Qu
 **Interfaces:**
 - Produces: `npm run dev` (port 5174), `npm run build` (strict tsc + vite), `npm test` (node --test over `tests/*.test.mjs`).
 
-- [ ] **Step 1: Write `package.json`**
+- [x] **Step 1: Write `package.json`**
 
 ```json
 {
@@ -108,14 +108,14 @@ android/                   Capacitor project + MainActivity, DownloadsPlugin, Qu
 }
 ```
 
-- [ ] **Step 2: Install dependencies**
+- [x] **Step 2: Install dependencies**
 
 ```bash
 npm install react@^18.3.1 react-dom@^18.3.1 react-router-dom@^6.26.2 zustand@^4.5.5 dexie@^4.4.6 dexie-react-hooks@^4.4.0 recharts@^2.12.7 @capacitor/core@^8.4.0 @capacitor/android@^8.4.0 @capacitor/app@^8.1.0 @capacitor/cli@^8.4.0 @aparajita/capacitor-biometric-auth@^10.0.0
 npm install -D typescript@~5.9.3 vite@^5.4.21 @vitejs/plugin-react@^4.7.0 tailwindcss@^3.4.10 postcss@^8.4.45 autoprefixer@^10.4.20 @types/react@^18.3.5 @types/react-dom@^18.3.0 fake-indexeddb@^6.2.5
 ```
 
-- [ ] **Step 3: Write the config files**
+- [x] **Step 3: Write the config files**
 
 `vite.config.ts`:
 ```ts
@@ -242,7 +242,7 @@ export default config;
 /// <reference types="vite/client" />
 ```
 
-- [ ] **Step 4: Copy the gym-tracker styling and ignore files**
+- [x] **Step 4: Copy the gym-tracker styling and ignore files**
 
 ```bash
 cp ../gym-tracker/tailwind.config.js ../gym-tracker/postcss.config.js ../gym-tracker/.gitignore .
@@ -259,7 +259,7 @@ Then append to the `@layer utilities` block of `src/index.css` (before its closi
   }
 ```
 
-- [ ] **Step 5: Minimal app entry**
+- [x] **Step 5: Minimal app entry**
 
 `src/App.tsx`:
 ```tsx
@@ -282,12 +282,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 );
 ```
 
-- [ ] **Step 6: Verify the build**
+- [x] **Step 6: Verify the build**
 
 Run: `npm run build`
 Expected: exits 0, `dist/index.html` exists.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add package.json package-lock.json vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json index.html capacitor.config.ts tailwind.config.js postcss.config.js .gitignore src
@@ -305,7 +305,7 @@ git commit -m "Scaffold React + Vite + Tailwind + Capacitor project"
 **Interfaces:**
 - Produces: `MAX_DIGITS = 12`; `groupDigits(n: number): string`; `formatSom(n: number): string`; `formatSigned(amount: number, kind: 'expense' | 'income'): string`; `formatNet(n: number): string`; `formatCompact(n: number): string`; `type KeypadKey = '0'…'9' | '000' | 'back'`; `applyKey(digits: string, key: KeypadKey): string`; `digitsToAmount(digits: string): number`; `amountToDigits(n: number): string`; `parseWholeNumber(text: string, allowNegative?: boolean): number | null`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 `tests/money.test.mjs`:
 ```js
@@ -399,12 +399,12 @@ test('parseWholeNumber accepts grouped digits and optional sign', () => {
 });
 ```
 
-- [ ] **Step 2: Run the tests to see them fail**
+- [x] **Step 2: Run the tests to see them fail**
 
 Run: `npm test`
 Expected: FAIL — `Cannot find module '.../src/lib/money.ts'`.
 
-- [ ] **Step 3: Implement `src/lib/money.ts`**
+- [x] **Step 3: Implement `src/lib/money.ts`**
 
 ```ts
 // Amounts are whole Uzbek som stored as integers. The keypad caps input at
@@ -484,12 +484,12 @@ export function parseWholeNumber(text: string, allowNegative = false): number | 
 }
 ```
 
-- [ ] **Step 4: Run the tests to see them pass**
+- [x] **Step 4: Run the tests to see them pass**
 
 Run: `npm test`
 Expected: PASS — 8 tests.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/lib/money.ts tests/money.test.mjs
@@ -508,7 +508,7 @@ git commit -m "Add money formatting and keypad logic"
 - Produces (`dates.ts`): `MONTHS_SHORT`, `MONTHS_LONG`, `pad2(n)`, `toISODate(d: Date): string`, `todayISO(now?: Date): string`, `parseISODate(iso): { y, m, d }` (m is 1–12), `daysInMonth(y, m): number`, `addDaysISO(iso, days): string`, `formatShortDate(iso): string` ("5 Oct"), `formatDayHeading(iso, today): string`, `msUntilMidnight(now: Date): number`.
 - Produces (`period.ts`): `interface Period { key: string; year: number; month: number; start: string; end: string }`; `periodFor(year, month, startDay): Period`; `periodContaining(dateISO, startDay): Period`; `shiftPeriod(p, delta, startDay): Period`; `periodsEndingWith(p, count, startDay): Period[]` (oldest first); `periodLabel(p)` ("Oct 2026"); `periodShortLabel(p)` ("Oct"); `periodRangeLabel(p)` ("10 Oct – 9 Nov").
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 `tests/dates.test.mjs`:
 ```js
@@ -637,12 +637,12 @@ test('labels', () => {
 });
 ```
 
-- [ ] **Step 2: Run the tests to see them fail**
+- [x] **Step 2: Run the tests to see them fail**
 
 Run: `npm test`
 Expected: FAIL — `Cannot find module '.../src/lib/dates.ts'` and `.../period.ts`.
 
-- [ ] **Step 3: Implement `src/lib/dates.ts`**
+- [x] **Step 3: Implement `src/lib/dates.ts`**
 
 ```ts
 // Dates are stored as local calendar dates, "YYYY-MM-DD". Day arithmetic goes
@@ -706,7 +706,7 @@ export function msUntilMidnight(now: Date): number {
 }
 ```
 
-- [ ] **Step 4: Implement `src/lib/period.ts`**
+- [x] **Step 4: Implement `src/lib/period.ts`**
 
 ```ts
 import { MONTHS_SHORT, addDaysISO, daysInMonth, formatShortDate, pad2, parseISODate } from './dates.ts';
@@ -783,12 +783,12 @@ export function periodRangeLabel(p: Period): string {
 }
 ```
 
-- [ ] **Step 5: Run the tests to see them pass**
+- [x] **Step 5: Run the tests to see them pass**
 
 Run: `npm test`
 Expected: PASS — all money, dates and period tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/lib/dates.ts src/lib/period.ts tests/dates.test.mjs tests/period.test.mjs
@@ -807,7 +807,7 @@ git commit -m "Add date helpers and custom-month periods"
 - Produces (`stats.ts`): `type TxLike`; `interface Totals { income; spent; net }`; `totals(txs)`; `balance(openingBalance, txs)`; `inPeriod(txs, p)`; `interface CategoryTotal { categoryId; amount; share }`; `totalsByCategory(txs, kind)`; `interface DayTotal { date; spent }`; `spendingPerDay(txs, p)`; `dailyAverage(days, today)`; `interface PeriodTotals extends Totals { key }`; `totalsPerPeriod(txs, periods)`; `interface PeriodAmount { key; amount }`; `categoryPerPeriod(txs, categoryId, periods)`.
 - Produces (`budget.ts`): `type BudgetLevel = 'ok' | 'warning' | 'over'`; `WARNING_RATIO = 0.8`; `interface BudgetStatus { level; ratio; remaining }`; `budgetStatus(spent, limit)`; `budgetCrossing(before, after, limit: number | null): BudgetStatus | null`; `budgetMessage(s): string`.
 
-- [ ] **Step 1: Write `src/db/types.ts`** (types only; needed by the tests' imports)
+- [x] **Step 1: Write `src/db/types.ts`** (types only; needed by the tests' imports)
 
 ```ts
 // Shared data types. This file has no runtime imports so Node tests can load
@@ -882,7 +882,7 @@ export interface Settings {
 }
 ```
 
-- [ ] **Step 2: Write the failing tests**
+- [x] **Step 2: Write the failing tests**
 
 `tests/stats.test.mjs`:
 ```js
@@ -1016,12 +1016,12 @@ test('budgetMessage', () => {
 });
 ```
 
-- [ ] **Step 3: Run the tests to see them fail**
+- [x] **Step 3: Run the tests to see them fail**
 
 Run: `npm test`
 Expected: FAIL — cannot find `src/lib/stats.ts` and `src/lib/budget.ts`.
 
-- [ ] **Step 4: Implement `src/lib/stats.ts`**
+- [x] **Step 4: Implement `src/lib/stats.ts`**
 
 ```ts
 import type { Kind, Transaction } from '../db/types.ts';
@@ -1132,7 +1132,7 @@ export function categoryPerPeriod(
 }
 ```
 
-- [ ] **Step 5: Implement `src/lib/budget.ts`**
+- [x] **Step 5: Implement `src/lib/budget.ts`**
 
 ```ts
 import { formatSom } from './money.ts';
@@ -1172,12 +1172,12 @@ export function budgetMessage(s: BudgetStatus): string {
 }
 ```
 
-- [ ] **Step 6: Run the tests to see them pass**
+- [x] **Step 6: Run the tests to see them pass**
 
 Run: `npm test`
 Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/db/types.ts src/lib/stats.ts src/lib/budget.ts tests/stats.test.mjs tests/budget.test.mjs
@@ -1198,7 +1198,7 @@ git commit -m "Add data types, stats aggregation and budget rules"
 - Produces (`backupFormat.ts`): `BACKUP_APP = 'expense-tracker'`; `BACKUP_SCHEMA_VERSION = 1`; `interface BackupFile { app; schemaVersion; exportedAt; settings; categories; presets; transactions }`; `type BackupCheck = { ok: true; backup: BackupFile } | { ok: false; error: string }`; `validateBackup(input: unknown): BackupCheck`.
 - Produces (`filter.ts`): `interface TxFilter { kind: Kind | 'all'; categoryId: number | null; query: string }`; `EMPTY_FILTER`; `filterTransactions(txs, f, categoryName)`; `interface DayGroup<T> { date; items: T[]; net }`; `groupByDay(txs)`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 `tests/csv.test.mjs`:
 ```js
@@ -1349,12 +1349,12 @@ test('groupByDay: newest day first, newest entry first, net per day', () => {
 });
 ```
 
-- [ ] **Step 2: Run the tests to see them fail**
+- [x] **Step 2: Run the tests to see them fail**
 
 Run: `npm test`
 Expected: FAIL — cannot find `csv.ts`, `backupFormat.ts`, `filter.ts`.
 
-- [ ] **Step 3: Implement `src/lib/csv.ts`**
+- [x] **Step 3: Implement `src/lib/csv.ts`**
 
 ```ts
 import type { Transaction } from '../db/types.ts';
@@ -1383,7 +1383,7 @@ export function buildCsv(txs: readonly Transaction[], categoryName: (id: number)
 }
 ```
 
-- [ ] **Step 4: Implement `src/lib/backupFormat.ts`**
+- [x] **Step 4: Implement `src/lib/backupFormat.ts`**
 
 ```ts
 import {
@@ -1557,7 +1557,7 @@ function checkTransaction(v: unknown, i: number, kindOf: Map<number, Kind>): Tra
 }
 ```
 
-- [ ] **Step 5: Implement `src/lib/filter.ts`**
+- [x] **Step 5: Implement `src/lib/filter.ts`**
 
 ```ts
 import type { Kind, Transaction } from '../db/types.ts';
@@ -1611,12 +1611,12 @@ export function groupByDay<T extends Transaction>(txs: readonly T[]): DayGroup<T
 }
 ```
 
-- [ ] **Step 6: Run the tests to see them pass**
+- [x] **Step 6: Run the tests to see them pass**
 
 Run: `npm test`
 Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/lib/csv.ts src/lib/backupFormat.ts src/lib/filter.ts tests/csv.test.mjs tests/backupFormat.test.mjs tests/filter.test.mjs
@@ -1638,7 +1638,7 @@ git commit -m "Add CSV export, backup validation and entry filters"
 - Produces (`queries.ts`): `type TransactionInput = Pick<Transaction, 'kind'|'amount'|'categoryId'|'date'|'note'>`; `addTransaction(input, now?) → Promise<number>`; `updateTransaction(id, input, now?)`; `deleteTransaction(id)`; `transactionsBetween(start, end)`; `recentTransactions(limit)`; `allTransactions()`; `periodTotals(start, end) → Promise<Totals>`; `withBudgetCheck(action, now?) → Promise<BudgetStatus | null>`; `type CategoryInput`; `listCategories(kind?, { includeArchived? })`; `addCategory(input) → Promise<number>`; `updateCategory(id, { name, icon, color })`; `setCategoryArchived(id, archived)`; `categoryUsage(id)`; `deleteCategory(id)`; `moveCategory(id, -1 | 1)`; `type PresetInput`; `listPresets()`; `addPreset(input)`; `updatePreset(id, input)`; `deletePreset(id)`; `movePreset(id, -1 | 1)`; `logPreset(presetId, now?) → Promise<number>`; `getSettings()`; `type SettingsPatch`; `updateSettings(patch)`.
 - Produces (`backupData.ts`): `createBackup(now?) → Promise<BackupFile>`; `restoreBackup(text: string) → Promise<{ transactions: number }>`; `createCsv() → Promise<string>`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 `tests/db.test.mjs`:
 ```js
@@ -1837,12 +1837,12 @@ test('restoreBackup round-trips and leaves data untouched on bad files', async (
 });
 ```
 
-- [ ] **Step 2: Run the tests to see them fail**
+- [x] **Step 2: Run the tests to see them fail**
 
 Run: `npm test`
 Expected: FAIL — cannot find `src/db/db.ts`.
 
-- [ ] **Step 3: Implement `src/db/db.ts`**
+- [x] **Step 3: Implement `src/db/db.ts`**
 
 ```ts
 import Dexie, { type EntityTable } from 'dexie';
@@ -1868,7 +1868,7 @@ db.version(1).stores({
 });
 ```
 
-- [ ] **Step 4: Implement `src/db/seed.ts`**
+- [x] **Step 4: Implement `src/db/seed.ts`**
 
 ```ts
 import { db } from './db.ts';
@@ -1917,7 +1917,7 @@ export async function seedIfEmpty(): Promise<void> {
 }
 ```
 
-- [ ] **Step 5: Implement `src/db/queries.ts`**
+- [x] **Step 5: Implement `src/db/queries.ts`**
 
 ```ts
 import { db } from './db.ts';
@@ -2205,7 +2205,7 @@ export async function updateSettings(patch: SettingsPatch): Promise<void> {
 }
 ```
 
-- [ ] **Step 6: Implement `src/db/backupData.ts`**
+- [x] **Step 6: Implement `src/db/backupData.ts`**
 
 ```ts
 import { db } from './db.ts';
@@ -2258,17 +2258,17 @@ export async function createCsv(): Promise<string> {
 }
 ```
 
-- [ ] **Step 7: Run the tests to see them pass**
+- [x] **Step 7: Run the tests to see them pass**
 
 Run: `npm test`
 Expected: PASS — all suites including `db.test.mjs`.
 
-- [ ] **Step 8: Type-check**
+- [x] **Step 8: Type-check**
 
 Run: `npm run build`
 Expected: exits 0.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add src/db tests/db.test.mjs
@@ -2288,7 +2288,7 @@ git commit -m "Add Dexie data layer with validation, backup and CSV"
 - Consumes: `db`, `seedIfEmpty`, `getSettings`, `DEFAULT_SETTINGS`, `Kind`, `Transaction`, `Category`, `Settings`, `CategoryColor`, `periodContaining`, `periodFor`, `Period`, `todayISO`, `msUntilMidnight`, `EMPTY_FILTER`, `TxFilter`.
 - Produces: `useStore` with `sheet: SheetState`, `openAdd(kind?)`, `openEdit(tx)`, `closeSheet()`, `selectedPeriodKey`, `setSelectedPeriodKey(key | null)`, `historyFilter`, `setHistoryFilter(patch)`, `locked`, `setLocked(b)`; `type SheetState = { mode: 'add'; kind: Kind; nonce: number } | { mode: 'edit'; tx: Transaction; nonce: number } | null`; hooks `useToday()`, `useSettings()`, `primeSettings(s)`, `useCategoryMap()`, `useCurrentPeriod()`, `useSelectedPeriod() → { period, current, isCurrent }`; components `Sheet` (props `open, onClose, title?, eyebrow?, children, maxHeightClass?, bodyMaxHeight?`), `ToastProvider` + `useToast()` → `(o: { message; detail?; actionLabel?; onAction?; durationMs? }) => void`, `IconButton`, `ScreenHeader` (props `eyebrow?, title, backTo?, right?`), `CategoryBadge` (props `category: Pick<Category,'icon'|'color'>, size?`), `Icon` with exported `type IconName`; `BADGE_CLASSES`, `SWATCH_CLASSES`, `UNKNOWN_CATEGORY`.
 
-- [ ] **Step 1: Write the failing navigation test**
+- [x] **Step 1: Write the failing navigation test**
 
 `tests/navigation.test.mjs`:
 ```js
@@ -2312,7 +2312,7 @@ test('isTabRoot', () => {
 
 Run: `npm test` → Expected: FAIL, cannot find `src/lib/navigation.ts`.
 
-- [ ] **Step 2: Copy reusable files from gym-tracker**
+- [x] **Step 2: Copy reusable files from gym-tracker**
 
 ```bash
 mkdir -p src/lib src/components/ui src/store src/hooks src/screens scripts
@@ -2323,7 +2323,7 @@ cp ../gym-tracker/src/components/Icon.tsx src/components/Icon.tsx
 
 In `src/lib/downloads.ts` change the comment example `"Download/workout-tracker-2026-06-16.json"` to `"Download/expense-tracker-2026-10-04.json"`.
 
-- [ ] **Step 3: Write `src/lib/navigation.ts` and `src/lib/useAndroidBackButton.ts`**
+- [x] **Step 3: Write `src/lib/navigation.ts` and `src/lib/useAndroidBackButton.ts`**
 
 `src/lib/navigation.ts`:
 ```ts
@@ -2396,7 +2396,7 @@ export function useAndroidBackButton(): void {
 
 Run: `npm test` → Expected: navigation tests PASS.
 
-- [ ] **Step 4: Extend `src/components/Icon.tsx`**
+- [x] **Step 4: Extend `src/components/Icon.tsx`**
 
 At the top add:
 ```tsx
@@ -2670,7 +2670,7 @@ Insert these cases just before `default:`:
       );
 ```
 
-- [ ] **Step 5: Write `src/lib/categoryStyle.ts`**
+- [x] **Step 5: Write `src/lib/categoryStyle.ts`**
 
 ```ts
 import type { Category, CategoryColor } from '../db/types.ts';
@@ -2715,7 +2715,7 @@ export const UNKNOWN_CATEGORY: Category = {
 };
 ```
 
-- [ ] **Step 6: Write the store and hooks**
+- [x] **Step 6: Write the store and hooks**
 
 `src/store/useStore.ts`:
 ```ts
@@ -2858,7 +2858,7 @@ export function useSelectedPeriod(): { period: Period; current: Period; isCurren
 }
 ```
 
-- [ ] **Step 7: Write the UI primitives**
+- [x] **Step 7: Write the UI primitives**
 
 `src/components/ui/Sheet.tsx` (gym-tracker's Sheet, portalled, with a configurable body height):
 ```tsx
@@ -3057,7 +3057,7 @@ export function IconButton({ icon, label, onClick, disabled, tone = 'default' }:
 }
 ```
 
-- [ ] **Step 8: Write the layout components**
+- [x] **Step 8: Write the layout components**
 
 `src/components/BottomNav.tsx`:
 ```tsx
@@ -3190,7 +3190,7 @@ export function HomeScreen() {
 ```
 and the same shape for `HistoryScreen` (title "History"), `StatsScreen` ("Stats"), `SettingsScreen` ("Settings"), `CategoriesScreen` ("Categories", `backTo="/settings"`), `PresetsScreen` ("Quick add", `backTo="/settings"`).
 
-- [ ] **Step 9: Wire `App.tsx` and `main.tsx`**
+- [x] **Step 9: Wire `App.tsx` and `main.tsx`**
 
 `src/App.tsx`:
 ```tsx
@@ -3276,7 +3276,7 @@ async function boot() {
 void boot();
 ```
 
-- [ ] **Step 10: Add the screenshot tool `scripts/ui-shot.mjs`**
+- [x] **Step 10: Add the screenshot tool `scripts/ui-shot.mjs`**
 
 ```js
 #!/usr/bin/env node
@@ -3400,13 +3400,13 @@ process.exit(failed ? 1 : 0);
 
 Add `ui-shots/` to `.gitignore`.
 
-- [ ] **Step 11: Verify**
+- [x] **Step 11: Verify**
 
 Run: `npm test` → PASS. Run: `npm run build` → exits 0.
 Run `npm run dev` in the background, then `node scripts/ui-shot.mjs <scratchpad>/shots` and open `home.png`.
 Expected: dark gym-tracker styling, "Overview" header, bottom nav with Home/History/Stats/Settings, Home highlighted.
 
-- [ ] **Step 12: Commit**
+- [x] **Step 12: Commit**
 
 ```bash
 git add -A src scripts tests .gitignore
@@ -3425,7 +3425,7 @@ git commit -m "Add app shell, navigation, shared UI primitives and screenshot to
 - Consumes: `useStore` (`sheet`, `closeSheet`), `addTransaction`, `updateTransaction`, `deleteTransaction`, `listCategories`, `withBudgetCheck`, `addCategory`, `updateCategory`, `budgetMessage`, money keypad helpers, `todayISO`, `addDaysISO`, `formatShortDate`, `parseISODate`, `daysInMonth`, `pad2`, `MONTHS_LONG`.
 - Produces: `<TransactionSheet />` (global, driven by the store); `<CategoryEditor open kind category? onClose onSaved(id) />`; `<CalendarSheet open value max? onPick onClose />`; `<KindToggle value onChange />`; `<AmountKeypad onKey />`; `<CategoryGrid categories selectedId onSelect onAddNew />`.
 
-- [ ] **Step 1: `src/components/KindToggle.tsx`**
+- [x] **Step 1: `src/components/KindToggle.tsx`**
 
 ```tsx
 import type { Kind } from '../db/types';
@@ -3459,7 +3459,7 @@ export function KindToggle({ value, onChange }: { value: Kind; onChange: (k: Kin
 }
 ```
 
-- [ ] **Step 2: `src/components/AmountKeypad.tsx`**
+- [x] **Step 2: `src/components/AmountKeypad.tsx`**
 
 ```tsx
 import type { KeypadKey } from '../lib/money';
@@ -3487,7 +3487,7 @@ export function AmountKeypad({ onKey }: { onKey: (k: KeypadKey) => void }) {
 }
 ```
 
-- [ ] **Step 3: `src/components/CategoryGrid.tsx`**
+- [x] **Step 3: `src/components/CategoryGrid.tsx`**
 
 ```tsx
 import type { Category } from '../db/types';
@@ -3535,7 +3535,7 @@ export function CategoryGrid({ categories, selectedId, onSelect, onAddNew }: Pro
 }
 ```
 
-- [ ] **Step 4: `src/components/CategoryEditor.tsx`**
+- [x] **Step 4: `src/components/CategoryEditor.tsx`**
 
 ```tsx
 import { useEffect, useState } from 'react';
@@ -3655,7 +3655,7 @@ export function CategoryEditor({ open, kind, category, onClose, onSaved }: Props
 }
 ```
 
-- [ ] **Step 5: `src/components/ui/CalendarSheet.tsx`** (month grid from gym-tracker's DatePicker; Monday first)
+- [x] **Step 5: `src/components/ui/CalendarSheet.tsx`** (month grid from gym-tracker's DatePicker; Monday first)
 
 ```tsx
 import { useEffect, useMemo, useState } from 'react';
@@ -3750,7 +3750,7 @@ export function CalendarSheet({ open, value, max, onPick, onClose }: Props) {
 }
 ```
 
-- [ ] **Step 6: `src/components/TransactionSheet.tsx`**
+- [x] **Step 6: `src/components/TransactionSheet.tsx`**
 
 ```tsx
 import { useMemo, useState, type ReactNode } from 'react';
@@ -3944,11 +3944,11 @@ function DateChip({ active, onClick, children }: { active: boolean; onClick: () 
 }
 ```
 
-- [ ] **Step 7: Mount the sheet in `src/App.tsx`**
+- [x] **Step 7: Mount the sheet in `src/App.tsx`**
 
 Add `import { TransactionSheet } from './components/TransactionSheet';` and render `<TransactionSheet />` between `</main>` and `<BottomNav />`.
 
-- [ ] **Step 8: Verify in the browser**
+- [x] **Step 8: Verify in the browser**
 
 Run: `npm run build` → exits 0.
 With `npm run dev` running, write `<scratchpad>/steps-add.json`:
@@ -3963,7 +3963,7 @@ With `npm run dev` running, write `<scratchpad>/steps-add.json`:
 Run: `node scripts/ui-shot.mjs <scratchpad>/shots <scratchpad>/steps-add.json`
 Expected: `add-empty.png` shows the toggle, `0 so'm`, the category grid with "New", date chips, note, keypad and a disabled Save; `add-filled.png` shows `45 000 so'm` with Food selected; the save step prints `[[45000,"<today>"]]`; `category-editor.png` shows the editor sheet over the Add sheet. Fix any layout problem (e.g. the sheet needing to scroll on a 915px-tall screen) before committing.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add src
@@ -3981,7 +3981,7 @@ git commit -m "Add the Add/Edit entry sheet with keypad, categories and dates"
 - Consumes: `useSettings`, `useCurrentPeriod`, `useCategoryMap`, `useToday`, `useStore.openAdd/openEdit`, `transactionsBetween`, `allTransactions`, `recentTransactions`, `updateSettings`, `listPresets`, `logPreset`, `deleteTransaction`, `withBudgetCheck`, `listCategories`, `addPreset`, `updatePreset`, `deletePreset`, `totals`, `balance`, `groupByDay`, `budgetStatus`, `budgetMessage`, money formatters, `periodLabel`, `periodRangeLabel`, `parseWholeNumber`.
 - Produces: `<TransactionRow tx category? />`, `<DayGroupList groups categories showNet? />`, `<PresetEditor open preset? onClose />` (reused by Task 12), `useLongPress(onLongPress, onClick)`.
 
-- [ ] **Step 1: `src/hooks/useLongPress.ts`**
+- [x] **Step 1: `src/hooks/useLongPress.ts`**
 
 ```ts
 import { useRef } from 'react';
@@ -4027,7 +4027,7 @@ export function useLongPress(onLongPress: () => void, onClick: () => void) {
 }
 ```
 
-- [ ] **Step 2: Entry list components**
+- [x] **Step 2: Entry list components**
 
 `src/components/TransactionRow.tsx`:
 ```tsx
@@ -4103,7 +4103,7 @@ export function DayGroupList({ groups, categories, showNet = false }: Props) {
 }
 ```
 
-- [ ] **Step 3: Summary cards**
+- [x] **Step 3: Summary cards**
 
 `src/components/BalanceCard.tsx`:
 ```tsx
@@ -4184,7 +4184,7 @@ export function BudgetBar({ spent, limit }: { spent: number; limit: number }) {
 }
 ```
 
-- [ ] **Step 4: `src/components/PresetEditor.tsx`**
+- [x] **Step 4: `src/components/PresetEditor.tsx`**
 
 ```tsx
 import { useEffect, useState } from 'react';
@@ -4289,7 +4289,7 @@ export function PresetEditor({ open, preset, onClose }: Props) {
 }
 ```
 
-- [ ] **Step 5: `src/components/PresetBar.tsx`**
+- [x] **Step 5: `src/components/PresetBar.tsx`**
 
 ```tsx
 import { useState } from 'react';
@@ -4394,7 +4394,7 @@ function PresetChip({
 }
 ```
 
-- [ ] **Step 6: Replace `src/screens/HomeScreen.tsx`**
+- [x] **Step 6: Replace `src/screens/HomeScreen.tsx`**
 
 ```tsx
 import { Link, useNavigate } from 'react-router-dom';
@@ -4495,7 +4495,7 @@ function StartBalanceCard({ onSet, onDismiss }: { onSet: () => void; onDismiss: 
 }
 ```
 
-- [ ] **Step 7: Verify in the browser**
+- [x] **Step 7: Verify in the browser**
 
 Run: `npm run build` → exits 0.
 Steps file `<scratchpad>/steps-home.json` (seeds data through the real query layer, then screenshots):
@@ -4510,7 +4510,7 @@ Expected: `home-empty.png` shows the starting-balance card, balance `0 so'm`, "A
 
 Note: the seeding script uses `toISOString()` (UTC); if a seeded date lands in the future around midnight the add throws — rerun outside 00:00–05:00 local time.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src
@@ -4529,7 +4529,7 @@ git commit -m "Add Home screen with balance, budget bar, presets and recent entr
 - Consumes: `useSelectedPeriod`, `useSettings`, `useCategoryMap`, `useStore` (`setSelectedPeriodKey`, `historyFilter`, `setHistoryFilter`), `transactionsBetween`, `filterTransactions`, `groupByDay`, `totals`, `shiftPeriod`, `periodLabel`, `periodRangeLabel`, `Select`, `DayGroupList`.
 - Produces: `<PeriodSwitcher />` (shared with Stats).
 
-- [ ] **Step 1: `src/components/PeriodSwitcher.tsx`**
+- [x] **Step 1: `src/components/PeriodSwitcher.tsx`**
 
 ```tsx
 import { Icon } from './Icon';
@@ -4570,7 +4570,7 @@ export function PeriodSwitcher() {
 }
 ```
 
-- [ ] **Step 2: Replace `src/screens/HistoryScreen.tsx`**
+- [x] **Step 2: Replace `src/screens/HistoryScreen.tsx`**
 
 ```tsx
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -4674,13 +4674,13 @@ export function HistoryScreen() {
 }
 ```
 
-- [ ] **Step 3: Verify in the browser**
+- [x] **Step 3: Verify in the browser**
 
 Run: `npm run build` → exits 0.
 Steps: seed as in Task 9 Step 7 (same `js`), then `{ "path": "/history", "shot": "history.png" }`, then `{ "js": "tap('Expenses'); type('input[type=search]', 'metro');", "shot": "history-filtered.png" }`, then `{ "js": "tap('Previous month');", "shot": "history-prev.png" }`.
 Expected: entries grouped by day with day net totals; filtered view shows only the metro entry; previous month shows the empty state and the › button enabled.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src
@@ -4699,7 +4699,7 @@ git commit -m "Add History screen with period switcher, filters and search"
 - Consumes: `useSelectedPeriod`, `useSettings`, `useCategoryMap`, `useToday`, `transactionsBetween`, `periodsEndingWith`, `periodLabel`, `periodShortLabel`, `inPeriod`, `totals`, `totalsByCategory`, `spendingPerDay`, `dailyAverage`, `totalsPerPeriod`, `categoryPerPeriod`, money formatters, `formatDayHeading`, `Select`, `PeriodSwitcher`.
 - Produces: `SPEND_COLOR`, `INCOME_COLOR`; chart components as below.
 
-- [ ] **Step 1: Chart theme and tooltip**
+- [x] **Step 1: Chart theme and tooltip**
 
 `src/components/charts/chartTheme.ts`:
 ```ts
@@ -4739,7 +4739,7 @@ export function TooltipCard({ title, rows }: { title: string; rows: TooltipRow[]
 }
 ```
 
-- [ ] **Step 2: `src/components/charts/CategoryBars.tsx`** (spending by category — a ranked list of HTML bars, every value labelled)
+- [x] **Step 2: `src/components/charts/CategoryBars.tsx`** (spending by category — a ranked list of HTML bars, every value labelled)
 
 ```tsx
 import type { Category } from '../../db/types';
@@ -4785,7 +4785,7 @@ export function CategoryBars({ rows, categories, onPick }: Props) {
 }
 ```
 
-- [ ] **Step 3: `src/components/charts/DailySpendingChart.tsx`**
+- [x] **Step 3: `src/components/charts/DailySpendingChart.tsx`**
 
 ```tsx
 import { Bar, BarChart, CartesianGrid, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
@@ -4837,7 +4837,7 @@ export function DailySpendingChart({ days, average, today }: Props) {
 }
 ```
 
-- [ ] **Step 4: `src/components/charts/IncomeVsSpendingChart.tsx`** (two series → legend, tooltip, and a table view)
+- [x] **Step 4: `src/components/charts/IncomeVsSpendingChart.tsx`** (two series → legend, tooltip, and a table view)
 
 ```tsx
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
@@ -4922,7 +4922,7 @@ export function IncomeVsSpendingChart({ data }: { data: PeriodRow[] }) {
 }
 ```
 
-- [ ] **Step 5: `src/components/charts/CategoryTrendChart.tsx`**
+- [x] **Step 5: `src/components/charts/CategoryTrendChart.tsx`**
 
 ```tsx
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
@@ -4961,7 +4961,7 @@ export function CategoryTrendChart({ data, color, name }: { data: TrendRow[]; co
 }
 ```
 
-- [ ] **Step 6: Replace `src/screens/StatsScreen.tsx`**
+- [x] **Step 6: Replace `src/screens/StatsScreen.tsx`**
 
 ```tsx
 import { useMemo, useRef, useState, type ReactNode } from 'react';
@@ -5101,13 +5101,13 @@ function Empty() {
 }
 ```
 
-- [ ] **Step 7: Verify in the browser**
+- [x] **Step 7: Verify in the browser**
 
 Run: `npm run build` → exits 0.
 Steps: seed as in Task 9 Step 7 plus a few entries in earlier months (dates 35 and 70 days ago), then `{ "path": "/stats", "shot": "stats-top.png" }` and `{ "js": "window.scrollTo(0, 2000);", "shot": "stats-bottom.png" }`.
 Expected: category bars ranked with amounts and %; daily bars with an "avg" line; income/spending grouped bars with legend; category trend bars for the top category. Check against the dataviz anti-patterns: no dual axis, bars ≤ 24px, text never coloured with series colours, legend present for the two-series chart. Fix collisions or clipped labels before committing.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src
@@ -5125,7 +5125,7 @@ git commit -m "Add Stats screen with category, daily and monthly charts"
 - Consumes: `useSettings`, `useCurrentPeriod`, `updateSettings`, `createBackup`, `restoreBackup`, `createCsv`, `listCategories`, `moveCategory`, `setCategoryArchived`, `deleteCategory`, `listPresets`, `movePreset`, `CategoryEditor`, `PresetEditor`, `IconButton`, `Select`, `useConfirm`, `useToast`, `Downloads`, `parseWholeNumber`, `groupDigits`, `periodFor`, `periodRangeLabel`, `todayISO`.
 - Produces: `saveTextFile(filename, text, mimeType): Promise<string>`; `APP_VERSION`; `<NumberSetting ... />`. Settings has a `data-section="security"` block that Task 13 fills.
 
-- [ ] **Step 1: `src/lib/files.ts` and `src/lib/version.ts`**
+- [x] **Step 1: `src/lib/files.ts` and `src/lib/version.ts`**
 
 `src/lib/files.ts`:
 ```ts
@@ -5161,7 +5161,7 @@ import pkg from '../../package.json';
 export const APP_VERSION: string = pkg.version;
 ```
 
-- [ ] **Step 2: `src/components/NumberSetting.tsx`**
+- [x] **Step 2: `src/components/NumberSetting.tsx`**
 
 ```tsx
 import { useEffect, useState, type Ref } from 'react';
@@ -5260,7 +5260,7 @@ export function NumberSetting({ label, hint, value, emptyMeans, allowNegative = 
 }
 ```
 
-- [ ] **Step 3: Replace `src/screens/SettingsScreen.tsx`**
+- [x] **Step 3: Replace `src/screens/SettingsScreen.tsx`**
 
 ```tsx
 import { useEffect, useRef, type ChangeEvent, type ReactNode } from 'react';
@@ -5429,7 +5429,7 @@ function ActionRow({ icon, label, hint, onClick }: { icon: IconName; label: stri
 }
 ```
 
-- [ ] **Step 4: Replace `src/screens/CategoriesScreen.tsx`**
+- [x] **Step 4: Replace `src/screens/CategoriesScreen.tsx`**
 
 ```tsx
 import { useState } from 'react';
@@ -5516,7 +5516,7 @@ export function CategoriesScreen() {
 }
 ```
 
-- [ ] **Step 5: Replace `src/screens/PresetsScreen.tsx`**
+- [x] **Step 5: Replace `src/screens/PresetsScreen.tsx`**
 
 ```tsx
 import { useState } from 'react';
@@ -5584,13 +5584,13 @@ export function PresetsScreen() {
 }
 ```
 
-- [ ] **Step 6: Verify in the browser**
+- [x] **Step 6: Verify in the browser**
 
 Run: `npm test` → PASS. Run: `npm run build` → exits 0.
 Steps: `{ "path": "/settings", "shot": "settings.png" }`, `{ "path": "/settings/categories", "shot": "categories.png" }`, `{ "js": "tap('New preset')", "path": "/settings/presets", "shot": "preset-editor.png" }`, and a round trip: `{ "js": "const b = await import('/src/db/backupData.ts'); const q = await import('/src/db/queries.ts'); const cats = await q.listCategories('expense'); await q.addTransaction({ kind: 'expense', amount: 1000, categoryId: cats[0].id, date: '2026-01-01', note: 'a,\"b\"' }); const json = JSON.stringify(await b.createBackup()); await q.deleteTransaction((await q.allTransactions())[0].id); await b.restoreBackup(json); return [(await q.allTransactions()).length, (await b.createCsv()).split('\\r\\n')[1]];" }`.
 Expected: settings sections render (Money, Security placeholder, Manage, Backup, version); categories list with move/edit/hide/delete buttons fits on one row at 412px; the round trip prints `[1,"2026-01-01,Expense,Food,1000,\"a,\"\"b\"\"\""]`.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src
@@ -5610,7 +5610,7 @@ git commit -m "Add Settings, Categories and Presets screens with backup and CSV 
 - Consumes: `useStore.locked/setLocked`, `useSettings`, `updateSettings`, `useToast`, `@aparajita/capacitor-biometric-auth`.
 - Produces: `RELOCK_AFTER_MS = 60_000`; `shouldRelock(hiddenAt: number | null, now: number, lockEnabled: boolean): boolean`; `type UnlockResult = 'ok' | 'cancelled' | 'unavailable' | 'failed'`; `lockAvailable(): Promise<boolean>`; `authenticate(reason): Promise<UnlockResult>`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 `tests/lockTiming.test.mjs`:
 ```js
@@ -5629,7 +5629,7 @@ test('relocks only when enabled and away for at least a minute', () => {
 
 Run: `npm test` → Expected: FAIL, cannot find `lockTiming.ts`.
 
-- [ ] **Step 2: `src/lib/lockTiming.ts`**
+- [x] **Step 2: `src/lib/lockTiming.ts`**
 
 ```ts
 /** Leaving the app for at least this long locks it again. */
@@ -5643,7 +5643,7 @@ export function shouldRelock(hiddenAt: number | null, now: number, lockEnabled: 
 
 Run: `npm test` → Expected: PASS.
 
-- [ ] **Step 3: `src/lib/biometric.ts`**
+- [x] **Step 3: `src/lib/biometric.ts`**
 
 ```ts
 import { BiometricAuth, BiometryError, BiometryErrorType } from '@aparajita/capacitor-biometric-auth';
@@ -5691,7 +5691,7 @@ export async function authenticate(reason: string): Promise<UnlockResult> {
 }
 ```
 
-- [ ] **Step 4: `src/components/LockScreen.tsx` and `src/components/LockGate.tsx`**
+- [x] **Step 4: `src/components/LockScreen.tsx` and `src/components/LockGate.tsx`**
 
 `src/components/LockScreen.tsx`:
 ```tsx
@@ -5794,7 +5794,7 @@ export function LockGate({ children }: { children: ReactNode }) {
 }
 ```
 
-- [ ] **Step 5: `src/components/LockSetting.tsx`**
+- [x] **Step 5: `src/components/LockSetting.tsx`**
 
 ```tsx
 import { useState } from 'react';
@@ -5850,7 +5850,7 @@ export function LockSetting({ enabled }: { enabled: boolean }) {
 }
 ```
 
-- [ ] **Step 6: Wire it up**
+- [x] **Step 6: Wire it up**
 
 In `src/screens/SettingsScreen.tsx`: import `LockSetting` and replace `<div data-section="security" />` with `<LockSetting enabled={settings.lockEnabled} />`.
 
@@ -5865,13 +5865,13 @@ In `src/lib/useAndroidBackButton.ts`: add `import { useStore } from '../store/us
       }
 ```
 
-- [ ] **Step 7: Verify**
+- [x] **Step 7: Verify**
 
 Run: `npm test` → PASS. Run: `npm run build` → exits 0.
 Browser check (the plugin simulates biometry on the web): steps `{ "path": "/settings", "shot": "settings-lock.png" }` then `{ "js": "tap('Fingerprint lock'); await sleep(500);", "shot": "lock-toast.png" }`.
 Expected: the Security row shows the switch off; tapping it on the web shows "Set up a fingerprint or screen lock on the phone first" (no simulated biometry). The real prompt is checked on the phone in Task 14.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src tests/lockTiming.test.mjs
@@ -5891,7 +5891,7 @@ git commit -m "Add fingerprint lock with phone PIN fallback"
 - Consumes: `useStore.openAdd`, `@capacitor/app` (`getLaunchUrl`, `appUrlOpen`).
 - Produces: `parseDeepLink(url: string): { type: 'add'; kind: Kind } | null`; URL scheme `expensetracker://add?kind=expense|income` (Task 15's widget uses it).
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 `tests/deepLink.test.mjs`:
 ```js
@@ -5916,7 +5916,7 @@ test('ignores anything else', () => {
 
 Run: `npm test` → Expected: FAIL, cannot find `deepLink.ts`.
 
-- [ ] **Step 2: `src/lib/deepLink.ts`**
+- [x] **Step 2: `src/lib/deepLink.ts`**
 
 ```ts
 import type { Kind } from '../db/types.ts';
@@ -5938,7 +5938,7 @@ export function parseDeepLink(url: string): DeepLinkAction | null {
 
 Run: `npm test` → Expected: PASS.
 
-- [ ] **Step 3: `src/hooks/useDeepLinks.ts` and wire into `App.tsx`**
+- [x] **Step 3: `src/hooks/useDeepLinks.ts` and wire into `App.tsx`**
 
 ```ts
 import { useEffect } from 'react';
@@ -5977,7 +5977,7 @@ In `src/App.tsx` add `import { useDeepLinks } from './hooks/useDeepLinks';` and 
 
 Run: `npm run build` → exits 0.
 
-- [ ] **Step 4: Generate the Android project**
+- [x] **Step 4: Generate the Android project**
 
 ```bash
 npx cap add android
@@ -5987,7 +5987,7 @@ sed -i 's/^package com.mardon.workouttracker;/package com.mardon.expensetracker;
 ```
 Check: `grep -n "^package" android/app/src/main/java/com/mardon/expensetracker/*.java` → both `com.mardon.expensetracker`. `MainActivity` registers `DownloadsPlugin` and sets up edge-to-edge drawing.
 
-- [ ] **Step 5: Deep-link intent filter**
+- [x] **Step 5: Deep-link intent filter**
 
 In `android/app/src/main/AndroidManifest.xml`, inside the `MainActivity` `<activity>` element, after the LAUNCHER `<intent-filter>`, add:
 ```xml
@@ -6000,7 +6000,7 @@ In `android/app/src/main/AndroidManifest.xml`, inside the `MainActivity` `<activ
 ```
 (Capacitor's template already sets `android:launchMode="singleTask"`, so a widget tap on a running app arrives as `appUrlOpen`.)
 
-- [ ] **Step 6: Launcher icon and dark launch background**
+- [x] **Step 6: Launcher icon and dark launch background**
 
 Copy the generator and replace its drawing:
 ```bash
@@ -6063,7 +6063,7 @@ Set the adaptive-icon background and the launch screen to the app's dark colour:
         <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
 ```
 
-- [ ] **Step 7: Build the APK**
+- [x] **Step 7: Build the APK**
 
 PowerShell:
 ```powershell
@@ -6075,7 +6075,7 @@ npm run build; npx cap sync android
 ```
 Expected: `BUILD SUCCESSFUL`, `android/app/build/outputs/apk/debug/app-debug.apk` exists.
 
-- [ ] **Step 8: Install on the phone and check**
+- [x] **Step 8: Install on the phone and check**
 
 ```powershell
 adb devices                                  # expect RFCXA193X7L  device
@@ -6086,7 +6086,7 @@ adb shell am start -a android.intent.action.VIEW -d "expensetracker://add?kind=i
 ```
 Expected: the app opens dark, edge-to-edge, on Home with the starting-balance card; the deep link opens the Add sheet with Income selected. Close the sheet without saving. Do **not** add test entries to the phone's database. If `adb devices` shows `unauthorized` or nothing, ask the owner to connect the phone and accept USB debugging, then continue. If the owner is around, ask them to try Settings → Fingerprint lock on the phone.
 
-- [ ] **Step 9: Commit and push**
+- [x] **Step 9: Commit and push**
 
 ```bash
 git add -A src scripts tests public android
@@ -6105,7 +6105,7 @@ git push origin main
 **Interfaces:**
 - Consumes: the `expensetracker://add?kind=…` deep link and `MainActivity` from Task 14.
 
-- [ ] **Step 1: `QuickAddWidget.java`**
+- [x] **Step 1: `QuickAddWidget.java`**
 
 ```java
 package com.mardon.expensetracker;
@@ -6152,7 +6152,7 @@ public class QuickAddWidget extends AppWidgetProvider {
 }
 ```
 
-- [ ] **Step 2: Layout, drawables and provider info**
+- [x] **Step 2: Layout, drawables and provider info**
 
 `res/layout/widget_quick_add.xml`:
 ```xml
@@ -6248,7 +6248,7 @@ Add to `res/values/strings.xml`:
     <string name="widget_add_income">+ Income</string>
 ```
 
-- [ ] **Step 3: Register the receiver**
+- [x] **Step 3: Register the receiver**
 
 In `AndroidManifest.xml`, inside `<application>` after the `<activity>`:
 ```xml
@@ -6265,7 +6265,7 @@ In `AndroidManifest.xml`, inside `<application>` after the `<activity>`:
         </receiver>
 ```
 
-- [ ] **Step 4: Build, install, check**
+- [x] **Step 4: Build, install, check**
 
 Run the PowerShell build from Task 14 Step 7, then back up (nothing to lose yet, but keep the habit from the first real entry on):
 ```bash
@@ -6276,7 +6276,7 @@ D="/c/Users/Mardon/expense-tracker-phone-backups/$(date +%F)-before-deploy"; mkd
 then `installDebug` (an in-place update; never uninstall).
 Check: `adb shell dumpsys appwidget | grep -i expensetracker` lists `QuickAddWidget` as an available provider. Ask the owner to add "Expense Tracker quick add" from the home-screen widget picker and tap both buttons: each should open the Add sheet with the matching type.
 
-- [ ] **Step 5: Commit and push**
+- [x] **Step 5: Commit and push**
 
 ```bash
 git add android
@@ -6291,17 +6291,17 @@ git push origin main
 **Files:**
 - Replace: `README.md`, `AGENTS.md`
 
-- [ ] **Step 1: Write `README.md`** (owner-facing: what it is, features, how to use each screen, backup, widget, lock, and a link to AGENTS.md for agents)
+- [x] **Step 1: Write `README.md`** (owner-facing: what it is, features, how to use each screen, backup, widget, lock, and a link to AGENTS.md for agents)
 
-- [ ] **Step 2: Rewrite `AGENTS.md`** with the gym-tracker structure, filled with this app's facts: §0 status, §1 what this is, §2 data-safety rules (appId, androidScheme, DB versioning, never uninstall, backup command with `com.mardon.expensetracker`), §3 commands (dev on 5174, build, `npm test`, `scripts/ui-shot.mjs`, Android build/install in PowerShell), §4 architecture map (the File Structure above), §5 data model and invariants, §6 behaviour worth knowing (periods, presets + undo, budget toasts, lock relock timing, deep links/widget, backup/CSV), §7 verifying changes, §8 conventions (import extensions, `import type`, no enums, `useConfirm`/`useToast`, chart colours), §9 git (commits straight to `main` for now, push to `origin`).
+- [x] **Step 2: Rewrite `AGENTS.md`** with the gym-tracker structure, filled with this app's facts: §0 status, §1 what this is, §2 data-safety rules (appId, androidScheme, DB versioning, never uninstall, backup command with `com.mardon.expensetracker`), §3 commands (dev on 5174, build, `npm test`, `scripts/ui-shot.mjs`, Android build/install in PowerShell), §4 architecture map (the File Structure above), §5 data model and invariants, §6 behaviour worth knowing (periods, presets + undo, budget toasts, lock relock timing, deep links/widget, backup/CSV), §7 verifying changes, §8 conventions (import extensions, `import type`, no enums, `useConfirm`/`useToast`, chart colours), §9 git (commits straight to `main` for now, push to `origin`).
 
-- [ ] **Step 3: Final checks**
+- [x] **Step 3: Final checks**
 
 Run: `npm test` → all suites PASS.
 Run: `npm run build` → exits 0.
 Run: `git status` → only `prompt.txt` untracked (the owner's own file).
 
-- [ ] **Step 4: Commit and push**
+- [x] **Step 4: Commit and push**
 
 ```bash
 git add README.md AGENTS.md
