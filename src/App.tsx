@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { BottomNav } from './components/BottomNav';
+import { TransactionSheet } from './components/TransactionSheet';
 import { ConfirmProvider } from './components/ui/ConfirmDialog';
 import { ToastProvider } from './components/ui/Toast';
 import { useAndroidBackButton } from './lib/useAndroidBackButton';
@@ -32,6 +33,7 @@ export default function App() {
               <Route path="/settings/presets" element={<PresetsScreen />} />
             </Routes>
           </main>
+          <TransactionSheet />
           <BottomNav />
         </div>
       </ToastProvider>
