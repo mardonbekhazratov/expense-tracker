@@ -22,3 +22,6 @@ dist-ssr
 android/app/build
 android/.gradle
 android/local.properties
+
+# UI screenshots from scripts/ui-shot.mjs
+ui-shots/
