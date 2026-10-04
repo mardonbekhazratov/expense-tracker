@@ -2,6 +2,7 @@ import { useEffect, useRef, type ChangeEvent, type ReactNode } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { NumberSetting } from '../components/NumberSetting';
+import { LockSetting } from '../components/LockSetting';
 import { Icon, type IconName } from '../components/Icon';
 import { Select } from '../components/ui/Select';
 import { useConfirm } from '../components/ui/ConfirmDialog';
@@ -111,7 +112,7 @@ export function SettingsScreen() {
         </Section>
 
         <Section title="Security">
-          <div data-section="security" />
+          <LockSetting enabled={settings.lockEnabled} />
         </Section>
 
         <Section title="Manage">
