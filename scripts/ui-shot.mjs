@@ -27,8 +27,10 @@ mkdirSync(outDir, { recursive: true });
 const HELPERS = `
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const tap = (text) => {
-    const el = [...document.querySelectorAll('button, a, [role=radio]')]
-      .find((e) => e.textContent.trim() === text || e.getAttribute('aria-label') === text);
+    const all = [...document.querySelectorAll('button, a, [role=radio]')];
+    const el =
+      all.find((e) => e.textContent.trim() === text || e.getAttribute('aria-label') === text) ??
+      all.find((e) => e.textContent.trim().startsWith(text));
     if (!el) throw new Error('nothing to tap: ' + text);
     el.click();
   };
