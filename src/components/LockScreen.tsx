@@ -2,12 +2,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from './Icon';
 import { useToast } from './ui/Toast';
 import { authenticate } from '../lib/biometric';
+import { createPromptGuard } from '../lib/lockTiming';
 import { updateSettings } from '../db/queries';
 
-/** Opaque cover shown while locked. Prompts on mount and whenever the app returns to the front. */
+/** Opaque cover shown while locked. Prompts on mount and when the owner comes back to the app. */
 export function LockScreen({ onUnlock }: { onUnlock: () => void }) {
   const toast = useToast();
   const busy = useRef(false);
+  const guard = useRef(createPromptGuard());
   const [message, setMessage] = useState<string | null>(null);
 
   const unlock = useCallback(async () => {
@@ -31,11 +33,12 @@ export function LockScreen({ onUnlock }: { onUnlock: () => void }) {
 
   useEffect(() => {
     void unlock();
-    const onVisible = () => {
-      if (document.visibilityState === 'visible') void unlock();
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') guard.current.onHidden(busy.current);
+      else if (guard.current.shouldPromptOnVisible()) void unlock();
     };
-    document.addEventListener('visibilitychange', onVisible);
-    return () => document.removeEventListener('visibilitychange', onVisible);
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
   }, [unlock]);
 
   return (
